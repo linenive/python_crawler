@@ -1,5 +1,6 @@
 import os
 import time
+from dotenv import load_dotenv
 
 import pandas as pd
 from datetime import datetime
@@ -11,9 +12,10 @@ from selenium import webdriver
 from collection import crawler
 
 
-# 모듈이 실행되고 있는 디렉토리 구하기
-BASE_DIR = (os.path.dirname(os.path.abspath(__file__)))
-RESULT_DIR = '/home/webmaster/crawling-results/'
+load_dotenv()
+
+def crawling_naver_cafe_article():
+    url = os.getenv("CAFE_URL")
 
 
 def crawling_nene():
@@ -80,14 +82,9 @@ def crawling_nene():
     #     print(t)
 
 
-def store_naver_movie_rank(data):
-    for index, div in enumerate(data):
-        print(index + 1, div.a.text, sep=":")
-
-
 def main():
-    crawling_nene()
+    crawling_naver_cafe_article()
 
-    
+
 if __name__ == '__main__':
     main()

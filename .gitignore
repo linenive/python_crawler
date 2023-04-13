@@ -21,3 +21,5 @@ collection/__pycache__/
 .cache
 nosetests.xml
 coverage.xml
+
+.env
